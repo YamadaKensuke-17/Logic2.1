@@ -8,6 +8,10 @@ class AlarmClock {
     private var alarmDate: Date?
     
     func setAlarm(hour: Int, minute: Int) {
+        if hour < 0 || hour > 23 || minute < 0 || minute > 59 {
+            print("⚠️  タイマーがセットできませんでした。 00:00 から 23:59 までの時間で設定してください。")
+            return
+        }
         var components = DateComponents()
         components.hour = hour
         components.minute = minute
@@ -51,6 +55,6 @@ class AlarmClock {
 
 
 let alarm = AlarmClock()
-alarm.setAlarm(hour: 11, minute: 6)
+alarm.setAlarm(hour: 16, minute: 20)
 
 
